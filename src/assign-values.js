@@ -1,9 +1,9 @@
 import data from './data';
 import output from './output-variables';
 
-let op = output;
-let infecsByReqTime1 = op.impact.infectionsByRequestedTime;
-let infecsByReqTime2 = op.severeImpact.infectionsByRequestedTime;
+const op = output;
+const infecsByReqTime1 = op.impact.infectionsByRequestedTime;
+const infecsByReqTime2 = op.severeImpact.infectionsByRequestedTime;
 
 //  Functions
 function durationInputNormalizer() {
@@ -58,7 +58,7 @@ function assignValues() {
   infecsByReqTime2 = infecs(output.impact.currentlyInfected);
   infecsByReqTime2 = infecs(output.severeImpact.currentlyInfected);
   op.impact.severeCasesByRequestedTime = sevCases(infecsByReqTime1);
-  op.severeImpact.severeCasesByRequestedTime = sevCases(infecByReqTime2);
+  op.severeImpact.severeCasesByRequestedTime = sevCases(infecsByReqTime2);
   op.impact.hospitalBedsByRequestedTime = beds();
   op.severeImpact.hospitalBedsByRequestedTime = beds();
   op.impact.casesForICUByRequestedTime = icu(infecsByReqTime1);
