@@ -1,6 +1,7 @@
 import data from './data';
 import output from './output-variables';
 
+var op = output;
 
 //  Functions
 function durationInputNormalizer() {
@@ -23,47 +24,49 @@ function sevImpactCurrentlyInfected() {
   return data.reportedCases * 50;
 }
 
-function infectionsByRequestedTime(currInfected) {
+function infecs(currInfected) {
   const time = durationInputNormalizer();
   const infections = currInfected * (Math.pow(2, (time / 3)));
   return Math.trunc(infections);
 }
 
-function severeCasesByRequestedTime(infecByReqTime) {
+function sevCases(infecByReqTime) {
   return Math.trunc((15 / 100) * infecByReqTime);
 }
 
-function hospitalBedsByRequestedTime() {
+function beds() {
   return Math.trunc((35 / 100) * data.totalHospitalBeds);
 }
 
-function casesForICUByRequestedTime(infecByReqTime) {
+function icu(infecByReqTime) {
   return Math.trunc((5 / 100) * infecByReqTime);
 }
 
-function casesForVentilatorsByRequestedTime(infecByReqTime) {
+function ventilators(infecByReqTime) {
   return Math.trunc((2 / 100) * infecByReqTime);
 }
 
-function dollarsInFlight(infecByReqTime) {
+function dollars(infecByReqTime) {
   return Math.trunc(infecByReqTime * (85 / 100) * 5 * 30); 
 }
 
 function assignValues() {
-  output.impact.currentlyInfected = impactCurrentlyInfected();
-  output.severeImpact.currentlyInfected = sevImpactCurrentlyInfected();
-  output.impact.infectionsByRequestedTime = infectionsByRequestedTime(output.impact.currentlyInfected);
-  output.severeImpact.infectionsByRequestedTime = infectionsByRequestedTime(output.severeImpact.currentlyInfected);
-  output.impact.severeCasesByRequestedTime = severeCasesByRequestedTime(output.impact.infectionsByRequestedTime);
-  output.severeImpact.severeCasesByRequestedTime = severeCasesByRequestedTime(output.severeImpact.infectionsByRequestedTime);
-  output.impact.hospitalBedsByRequestedTime = hospitalBedsByRequestedTime();
-  output.severeImpact.hospitalBedsByRequestedTime = hospitalBedsByRequestedTime();
-  output.impact.casesForICUByRequestedTime = casesForICUByRequestedTime(output.impact.infectionsByRequestedTime);
-  output.severeImpact.casesForICUByRequestedTime = casesForICUByRequestedTime(output.severeImpact.infectionsByRequestedTime);
-  output.impact.casesForVentilatorsByRequestedTime = casesForVentilatorsByRequestedTime(output.impact.infectionsByRequestedTime);
-  output.severeImpact.casesForVentilatorsByRequestedTime = casesForVentilatorsByRequestedTime(output.severeImpact.infectionsByRequestedTime);
-  output.impact.dollarsInFlight = dollarsInFlight(output.impact.infectionsByRequestedTime);
-  output.severeImpact.dollarsInFlight = dollarsInFlight(output.severeImpact.infectionsByRequestedTime);
+  let infecsByReqTime1 = op.impact.infectionsByRequestedTime;
+  let infecsByReqTime2 = op.severeImpact.infectionsByRequestedTime;
+  op.impact.currentlyInfected = impactCurrentlyInfected();
+  op.severeImpact.currentlyInfected = sevImpactCurrentlyInfected();
+  infecsByReqTime2 = infecs(output.impact.currentlyInfected);
+  infecsByReqTime2 = infecs(output.severeImpact.currentlyInfected);
+  op.impact.severeCasesByRequestedTime = sevCases(infecsByReqTime1);
+  op.severeImpact.severeCasesByRequestedTime = sevCases(infecByReqTime2);
+  op.impact.hospitalBedsByRequestedTime = beds();
+  op.severeImpact.hospitalBedsByRequestedTime = beds();
+  op.impact.casesForICUByRequestedTime = icu(infecsByReqTime1);
+  op.severeImpact.casesForICUByRequestedTime = icu(infecsByReqTime2);
+  op.impact.casesForVentilatorsByRequestedTime = ventilators(infecsByReqTime1);
+  op.severeImpact.casesForVentilatorsByRequestedTime = ventilators(infecsByReqTime2);
+  op.impact.dollarsInFlight = dollars(output.impact.infectionsByRequestedTime);
+  op.severeImpact.dollarsInFlight = dollars(output.severeImpact.infectionsByRequestedTime);
 }
 
 export default assignValues;
