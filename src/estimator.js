@@ -1,5 +1,6 @@
-import data from './data';
-import output from './output-variables';
+/**
+ * @jest-environment jsdom
+ */
 
 const covid19ImpactEstimator = () => output;
 
