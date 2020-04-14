@@ -54,8 +54,8 @@ function dollars(infecByReqTime) {
 function assignValues() {
   op.impact.currentlyInfected = impactCurrentlyInfected();
   op.severeImpact.currentlyInfected = sevImpactCurrentlyInfected();
-  infecsByReqTime1 = infecs(output.impact.currentlyInfected);
-  infecsByReqTime2 = infecs(output.severeImpact.currentlyInfected);
+  op.infecsByReqTime1 = infecs(output.impact.currentlyInfected);
+  op.infecsByReqTime2 = infecs(output.severeImpact.currentlyInfected);
   op.impact.severeCasesByRequestedTime = sevCases(infecsByReqTime1);
   op.severeImpact.severeCasesByRequestedTime = sevCases(infecsByReqTime2);
   op.impact.hospitalBedsByRequestedTime = beds();
