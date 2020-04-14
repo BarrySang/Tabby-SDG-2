@@ -1,6 +1,7 @@
 import data from './data';
 import output from './output-variables';
 
+var newData = data;
 const op = output;
 
 
@@ -18,11 +19,11 @@ function durationInputNormalizer() {
 }
 
 function impactCurrentlyInfected() {
-  return data.reportedCases * 10;
+  return newData.reportedCases * 10;
 }
 
 function sevImpactCurrentlyInfected() {
-  return data.reportedCases * 50;
+  return newData.reportedCases * 50;
 }
 
 function infecs(currInfected) {
