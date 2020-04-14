@@ -23,25 +23,25 @@ function sevImpactCurrentlyInfected() {
   return data.reportedCases * 50;
 }
 
-function infecByReqTime(currInfected) {
+function infectionsByRequestedTime(currInfected) {
   const time = durationInputNormalizer();
   const infections = currInfected * (Math.pow(2, (time / 3)));
   return Math.trunc(infections);
 }
 
-function sevCasByReqTime(infecByReqTime) {
+function severeCasesByRequestedTime(infecByReqTime) {
   return Math.trunc((15 / 100) * infecByReqTime);
 }
 
-function hospBedsByReqTime() {
+function hospitalBedsByRequestedTime() {
   return Math.trunc((35 / 100) * data.totalHospitalBeds);
 }
 
-function casForICUByReqTime(infecByReqTime) {
+function casesForICUByRequestedTime(infecByReqTime) {
   return Math.trunc((5 / 100) * infecByReqTime);
 }
 
-function casForVentByReqTime(infecByReqTime) {
+function casesForVentilatorsByRequestedTime(infecByReqTime) {
   return Math.trunc((2 / 100) * infecByReqTime);
 }
 
@@ -52,16 +52,16 @@ function dollarsInFlight(infecByReqTime) {
 function assignValues() {
   output.impact.currentlyInfected = impactCurrentlyInfected();
   output.severeImpact.currentlyInfected = sevImpactCurrentlyInfected();
-  output.impact.infectionsByRequestedTime = infecByReqTime(output.impact.currentlyInfected);
-  output.severeImpact.infectionsByRequestedTime = infecByReqTime(output.severeImpact.currentlyInfected);
-  output.impact.severeCasesByRequestedTime = sevCasByReqTime(output.impact.infectionsByRequestedTime);
-  output.severeImpact.severeCasesByRequestedTime = sevCasByReqTime(output.severeImpact.infectionsByRequestedTime);
-  output.impact.hospitalBedsByRequestedTime = hospBedsByReqTime();
-  output.severeImpact.hospitalBedsByRequestedTime = hospBedsByReqTime();
-  output.impact.casesForICUByRequestedTime = casForICUByReqTime(output.impact.infectionsByRequestedTime);
-  output.severeImpact.casesForICUByRequestedTime = casForICUByReqTime(output.severeImpact.infectionsByRequestedTime);
-  output.impact.casesForVentilatorsByRequestedTime = casForVentByReqTime(output.impact.infectionsByRequestedTime);
-  output.severeImpact.casesForVentilatorsByRequestedTime = casForVentByReqTime(output.severeImpact.infectionsByRequestedTime);
+  output.impact.infectionsByRequestedTime = infectionsByRequestedTime(output.impact.currentlyInfected);
+  output.severeImpact.infectionsByRequestedTime = infectionsByRequestedTime(output.severeImpact.currentlyInfected);
+  output.impact.severeCasesByRequestedTime = severeCasesByRequestedTime(output.impact.infectionsByRequestedTime);
+  output.severeImpact.severeCasesByRequestedTime = severeCasesByRequestedTime(output.severeImpact.infectionsByRequestedTime);
+  output.impact.hospitalBedsByRequestedTime = hospitalBedsByRequestedTime();
+  output.severeImpact.hospitalBedsByRequestedTime = hospitalBedsByRequestedTime();
+  output.impact.casesForICUByRequestedTime = casesForICUByRequestedTime(output.impact.infectionsByRequestedTime);
+  output.severeImpact.casesForICUByRequestedTime = casesForICUByRequestedTime(output.severeImpact.infectionsByRequestedTime);
+  output.impact.casesForVentilatorsByRequestedTime = casesForVentilatorsByRequestedTime(output.impact.infectionsByRequestedTime);
+  output.severeImpact.casesForVentilatorsByRequestedTime = casesForVentilatorsByRequestedTime(output.severeImpact.infectionsByRequestedTime);
   output.impact.dollarsInFlight = dollarsInFlight(output.impact.infectionsByRequestedTime);
   output.severeImpact.dollarsInFlight = dollarsInFlight(output.severeImpact.infectionsByRequestedTime);
 }
