@@ -24,8 +24,7 @@ function sevImpactCurrentlyInfected() {
 }
 
 function infectionsByRequestedTime(currInfected) {
-  const infections
-  const time = durationInputNormalizer();
+  const infections, time = durationInputNormalizer();
   infections = currInfected * (Math.pow(2, (time / 3)));
   return Math.trunc(infections);
 }
