@@ -2,8 +2,7 @@ import data from './data';
 import output from './output-variables';
 
 const op = output;
-const infecsByReqTime1 = op.impact.infectionsByRequestedTime;
-const infecsByReqTime2 = op.severeImpact.infectionsByRequestedTime;
+
 
 //  Functions
 function durationInputNormalizer() {
@@ -28,7 +27,7 @@ function sevImpactCurrentlyInfected() {
 
 function infecs(currInfected) {
   const time = durationInputNormalizer();
-  const infections = currInfected * (Math.pow(2, (time / 3)));
+  const infections = currInfected * (2 ** (time / 3));
   return Math.trunc(infections);
 }
 
@@ -55,7 +54,7 @@ function dollars(infecByReqTime) {
 function assignValues() {
   op.impact.currentlyInfected = impactCurrentlyInfected();
   op.severeImpact.currentlyInfected = sevImpactCurrentlyInfected();
-  infecsByReqTime2 = infecs(output.impact.currentlyInfected);
+  infecsByReqTime1 = infecs(output.impact.currentlyInfected);
   infecsByReqTime2 = infecs(output.severeImpact.currentlyInfected);
   op.impact.severeCasesByRequestedTime = sevCases(infecsByReqTime1);
   op.severeImpact.severeCasesByRequestedTime = sevCases(infecsByReqTime2);

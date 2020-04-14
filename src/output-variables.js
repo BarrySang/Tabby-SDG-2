@@ -4,7 +4,7 @@ const output = {
   data,
   impact: {
     currentlyInfected: null,
-    infectionsByRequestedTime: null,
+    infecsByReqTime1: null,
     severeCasesByRequestedTime: null,
     hospitalBedsByRequestedTime: null,
     casesForICUByRequestedTime: null,
@@ -13,7 +13,7 @@ const output = {
   },
   severeImpact: {
     currentlyInfected: null,
-    infectionsByRequestedTime: null,
+    infecsByReqTime2: null,
     severeCasesByRequestedTime: null,
     hospitalBedsByRequestedTime: null,
     casesForICUByRequestedTime: null,
