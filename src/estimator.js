@@ -1,9 +1,7 @@
 import data from './data';
 import output from './output-variables';
 
-const newData = data;
-
-const covid19ImpactEstimator = (newData) => output;
+const covid19ImpactEstimator = (input) => output;
 
 const inputForm = document.getElementById('input-form');
 
@@ -15,7 +13,7 @@ function submitHandler(event) {
   data.reportedCases = document.getElementById('data-reported-cases').value;
   data.totalHospitalBeds = document.getElementById('data-total-hospital-beds').value;
   data.periodType = document.getElementById('data-period-type').value;
-  covid19ImpactEstimator(newData);
+  covid19ImpactEstimator(data);
 }
 
 inputForm.onSubmit = submitHandler;
