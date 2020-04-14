@@ -17,8 +17,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    "comma-dangle": ["error", "never"],
-    "no-param-reassign": ["error", { "props": false }],
     "code": [0]
   },
 };
