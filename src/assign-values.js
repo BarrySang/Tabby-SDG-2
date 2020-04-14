@@ -56,14 +56,14 @@ function assignValues() {
   op.severeImpact.currentlyInfected = sevImpactCurrentlyInfected();
   op.infecsByReqTime1 = infecs(output.impact.currentlyInfected);
   op.infecsByReqTime2 = infecs(output.severeImpact.currentlyInfected);
-  op.impact.severeCasesByRequestedTime = sevCases(infecsByReqTime1);
-  op.severeImpact.severeCasesByRequestedTime = sevCases(infecsByReqTime2);
+  op.impact.severeCasesByRequestedTime = sevCases(op.infecsByReqTime1);
+  op.severeImpact.severeCasesByRequestedTime = sevCases(op.infecsByReqTime2);
   op.impact.hospitalBedsByRequestedTime = beds();
   op.severeImpact.hospitalBedsByRequestedTime = beds();
-  op.impact.casesForICUByRequestedTime = icu(infecsByReqTime1);
-  op.severeImpact.casesForICUByRequestedTime = icu(infecsByReqTime2);
-  op.impact.casesForVentilatorsByRequestedTime = ventilators(infecsByReqTime1);
-  op.severeImpact.casesForVentilatorsByRequestedTime = ventilators(infecsByReqTime2);
+  op.impact.casesForICUByRequestedTime = icu(op.infecsByReqTime1);
+  op.severeImpact.casesForICUByRequestedTime = icu(op.infecsByReqTime2);
+  op.impact.casesForVentilatorsByRequestedTime = ventilators(op.infecsByReqTime1);
+  op.severeImpact.casesForVentilatorsByRequestedTime = ventilators(op.infecsByReqTime2);
   op.impact.dollarsInFlight = dollars(output.impact.infectionsByRequestedTime);
   op.severeImpact.dollarsInFlight = dollars(output.severeImpact.infectionsByRequestedTime);
 }
