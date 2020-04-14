@@ -3,7 +3,7 @@ import output from './output-variables';
 
 const covid19ImpactEstimator = (data) => output;
 
-let inputForm = document.getElementById('input-form');
+const inputForm = document.getElementById('input-form');
 inputForm.onSubmit = submitHandler;
 
 function submitHandler() {

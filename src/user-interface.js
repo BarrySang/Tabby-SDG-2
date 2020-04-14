@@ -1,10 +1,10 @@
 import data from './data';
 import covid19ImpactEstimator from './estimator';
 
-let inputForm = document.getElementById('input-form');
+const inputForm = document.getElementById('input-form');
 inputForm.onSubmit = submitHandler;
 
-function submitHandler() {
+function submitHandler(event) {
   event.preventDefault();
   data.population = document.getElementById('data-population').value;
   data.timeToElapse = document.getElementById('data-time-to-elapse').value;
