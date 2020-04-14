@@ -1,10 +1,10 @@
-import data from './data.js';
-import output from './output-variables.js';
+import data from './data';
+import output from './output-variables';
 
 
 //Functions
 function durationInputNormalizer() {
-    var newTimeToElapse;
+    let newTimeToElapse;
     if (data.periodType == "months") {
         newTimeToElapse = data.timeToElapse * 30;
     } else if (data.periodType == "weeks") {
@@ -24,7 +24,7 @@ function sevImpactCurrentlyInfected() {
 }
 
 function infectionsByRequestedTime(currInfected) {
-    var time, infections;
+    let time, infections;
     time = durationInputNormalizer();
     infections = currInfected * (2**(time / 3));
     return Math.trunc(infections);

@@ -1,4 +1,4 @@
-var data = {
+let data = {
     region: {
         name: "Africa",
         avgAge: 5,
@@ -11,3 +11,5 @@ var data = {
     population: null,
     totalHospitalBeds: null
 };
+
+export default data;

@@ -1,7 +1,5 @@
 import data from './data';
-import output from './output-variables';
-
-const covid19ImpactEstimator = (data) => output;
+import covid19ImpactEstimator from './estimator';
 
 let inputForm = document.getElementById('input-form');
 inputForm.onSubmit = submitHandler;
@@ -15,5 +13,3 @@ function submitHandler() {
   data.periodType = document.getElementById('data-period-type').value;
   console.log(covid19ImpactEstimator(data));
 }
-
-export default covid19ImpactEstimator;
