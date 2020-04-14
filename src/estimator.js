@@ -1,7 +1,7 @@
 import data from './data';
 import output from './output-variables';
 
-const covid19ImpactEstimator = (input) => output;
+const covid19ImpactEstimator = () => output;
 
 const inputForm = document.getElementById('input-form');
 
