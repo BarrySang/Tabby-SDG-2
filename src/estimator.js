@@ -1,3 +1,4 @@
+import data from './data';
 import output from './output-variables';
 
 const covid19ImpactEstimator = (data) => output;
