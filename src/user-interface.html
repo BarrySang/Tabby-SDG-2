@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>index</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <form id="input-form">
+            <h2>Enter the details below</h2>
+            <input type="text" id="data-population" placeholder="Population"/>
+            <input type="text" id="data-time-to-elapse" placeholder="Time to elapse"/>
+            <input type="text" id="data-reported-cases" placeholder="Reported cases"/>
+            <input type="text" id="data-total-hospital-beds" placeholder="Total hospital beds"/>
+            <label for="data-period-type">Choose Type of Period</label>
+            <select id="data-period-type">
+                <option value="months">Months</option>
+                <option value="weeks">Weeks</option>
+                <option value="days">Days</option>
+            </select>
+            <button type="submit" id="data-go-estimate">Submit</button>
+        </form>
+        
+        <script src="estimator.js"></script>
+    </body>
+</html>
