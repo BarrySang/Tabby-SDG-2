@@ -5,9 +5,9 @@ import output from './output-variables';
 //  Functions
 function durationInputNormalizer() {
   let newTimeToElapse;
-  if (data.periodType === "months") {
+  if (data.periodType === 'months') {
     newTimeToElapse = data.timeToElapse * 30;
-  } else if (data.periodType === "weeks") {
+  } else if (data.periodType === 'weeks') {
     newTimeToElapse = data.timeToElapse * 7;
   } else {
     newTimeToElapse = data.timeToElapse;
@@ -31,23 +31,23 @@ function infectionsByRequestedTime(currInfected) {
 }
 
 function severeCasesByRequestedTime(infecByReqTime) {
-    return Math.trunc((15/100) * infecByReqTime);
+    return Math.trunc((15 / 100) * infecByReqTime);
 }
 
 function hospitalBedsByRequestedTime() {
-    return Math.trunc((35/100) * data.totalHospitalBeds);
+    return Math.trunc((35 / 100) * data.totalHospitalBeds);
 }
 
 function casesForICUByRequestedTime(infecByReqTime) {
-    return Math.trunc((5/100) * infecByReqTime);
+    return Math.trunc((5 / 100) * infecByReqTime);
 }
 
 function casesForVentilatorsByRequestedTime(infecByReqTime) {
-    return Math.trunc((2/100) * infecByReqTime);
+    return Math.trunc((2 / 100) * infecByReqTime);
 }
 
 function dollarsInFlight(infecByReqTime) {
-    return Math.trunc(infecByReqTime * (85/100) * 5 *30); 
+    return Math.trunc(infecByReqTime * (85 / 100) * 5 *30); 
 }
 
 function assignValues() {
