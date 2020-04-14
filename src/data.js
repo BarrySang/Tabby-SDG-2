@@ -5,7 +5,7 @@ const data = {
     avgDailyIncomeInUSD: 5,
     avgDailyIncomePopulation: 85
   },
-  periodType: "",
+  periodType: '',
   timeToElapse: null,
   reportedCases: null,
   population: null,

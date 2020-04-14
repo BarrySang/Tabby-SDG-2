@@ -12,7 +12,7 @@ function submitHandler(event) {
   data.reportedCases = document.getElementById('data-reported-cases').value;
   data.totalHospitalBeds = document.getElementById('data-total-hospital-beds').value;
   data.periodType = document.getElementById('data-period-type').value;
-  (covid19ImpactEstimator(data);
+  covid19ImpactEstimator(data);
 }
 
 inputForm.onSubmit = submitHandler;
