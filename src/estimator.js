@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import data from './data';
 import output from './output-variables';
 
