@@ -2,6 +2,8 @@ import data from './data';
 import output from './output-variables';
 
 let op = output;
+let infecsByReqTime1 = op.impact.infectionsByRequestedTime;
+let infecsByReqTime2 = op.severeImpact.infectionsByRequestedTime;
 
 //  Functions
 function durationInputNormalizer() {
@@ -51,8 +53,6 @@ function dollars(infecByReqTime) {
 }
 
 function assignValues() {
-  let infecsByReqTime1 = op.impact.infectionsByRequestedTime;
-  let infecsByReqTime2 = op.severeImpact.infectionsByRequestedTime;
   op.impact.currentlyInfected = impactCurrentlyInfected();
   op.severeImpact.currentlyInfected = sevImpactCurrentlyInfected();
   infecsByReqTime2 = infecs(output.impact.currentlyInfected);
