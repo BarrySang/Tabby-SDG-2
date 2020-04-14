@@ -1,6 +1,6 @@
 const data = {
   region: {
-    name: "Africa",
+    name: 'Africa',
     avgAge: 5,
     avgDailyIncomeInUSD: 5,
     avgDailyIncomePopulation: 85
