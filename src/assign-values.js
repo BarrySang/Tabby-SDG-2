@@ -2,17 +2,17 @@ import data from './data';
 import output from './output-variables';
 
 
-//Functions
+//  Functions
 function durationInputNormalizer() {
-    let newTimeToElapse;
-    if (data.periodType == "months") {
-        newTimeToElapse = data.timeToElapse * 30;
-    } else if (data.periodType == "weeks") {
-        newTimeToElapse = data.timeToElapse * 7;
-    } else {
-        newTimeToElapse = data.timeToElapse;
-    }
-    return newTimeToElapse;
+  let newTimeToElapse;
+  if (data.periodType === "months") {
+    newTimeToElapse = data.timeToElapse * 30;
+  } else if (data.periodType === "weeks") {
+    newTimeToElapse = data.timeToElapse * 7;
+  } else {
+    newTimeToElapse = data.timeToElapse;
+  }
+  return newTimeToElapse;
 }
 
 function impactCurrentlyInfected() {
