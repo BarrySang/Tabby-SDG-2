@@ -1,7 +1,7 @@
 import data from './data';
 import output from './output-variables';
 
-let newData = data;
+const newData = data;
 const op = output;
 
 
