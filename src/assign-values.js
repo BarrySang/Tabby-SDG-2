@@ -47,12 +47,12 @@ function ventilators(infecByReqTime) {
 }
 
 function dollars(infecByReqTime) {
-  return Math.trunc(infecByReqTime * (85 / 100) * 5 * 30); 
+  return Math.trunc(infecByReqTime * (85 / 100) * 5 * 30);
 }
 
 function assignValues() {
-  let infecsByReqTime1 = op.impact.infectionsByRequestedTime;
-  let infecsByReqTime2 = op.severeImpact.infectionsByRequestedTime;
+  const infecsByReqTime1 = op.impact.infectionsByRequestedTime;
+  const infecsByReqTime2 = op.severeImpact.infectionsByRequestedTime;
   op.impact.currentlyInfected = impactCurrentlyInfected();
   op.severeImpact.currentlyInfected = sevImpactCurrentlyInfected();
   infecsByReqTime2 = infecs(output.impact.currentlyInfected);
